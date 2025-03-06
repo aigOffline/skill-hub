@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Building Hub</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0e5ec, #f0f4f8);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #9b4dca;
+            margin: 0;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .tab-button {
+            background: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            background: #e0e5ec;
+        }
+
+        .tab-button.active {
+            background: #9b4dca;
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        /* Running Line */
+        .running-text-container {
+            width: 80%;
+            max-width: 1000px;
+            overflow: hidden;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .running-text {
+            font-size: 1.1rem;
+            color: #9b4dca;
+            margin: 0;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* About Me Text */
+        .about-text {
+            font-size: 1.2rem;
+            color: #444;
+            background: rgba(243, 229, 245, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: left;
+            display: block;
+        }
+
+        .about-text strong {
+            color: #9b4dca;
+        }
+
+        /* Surprise Section Styles */
+        .surprise {
+            margin-top: 40px;
+            text-align: center;
+            padding: 40px;
+            background: rgba(243, 229, 245, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .surprise h2 {
+            font-size: 2rem;
+            color: #9b4dca;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .surprise p {
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .surprise button {
+            background: rgba(155, 77, 202, 0.8);
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .surprise button:hover {
+            background: rgba(155, 77, 202, 1);
+        }
+
+        /* Float Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .surprise img {
+            width: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #9b4dca;
+            width: 80%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Skill Building Hub</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="window.location.href='index.html'">About Me</button>
+        <button class="tab-button" onclick="window.location.href='projects.html'">Projects</button>
+        <button class="tab-button" onclick="window.location.href='skill_hub.html'">Skill Hub</button>
+        <button class="tab-button" onclick="window.location.href='contact.html'">Contact</button>
+    </div>
+
+    <!-- Running Text -->
+    <div class="running-text-container">
+        <p class="running-text">Hello 👋  My name is Aigo!</p>
+    </div>
+    
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+
+        <div class="about-text">
+            <p><strong>Do you like stories?</strong> I've got a good one. But long story short:</p>
+        
+            <p><strong>I'm Aigo</strong>—a data storyteller who sees numbers as characters and spreadsheets as plotlines. I look at data and ask, <strong> "What's the story here?" </strong>Every trend, every chart is a clue, waiting to be unlocked.</p>
+        
+            <p>I used to write short stories, and now I write them with data—every insight is a plot twist.</p>
+        
+            <p><strong>Analytical? </strong>Absolutely. <strong>Creative?</strong> Definitely. I bridge logic and imagination to turn numbers into action.</p>
+        
+            <p>What's the next chapter? Let's create it together.</p>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <div class="surprise">
+        <h2>🎉 Surprise!</h2>
+        <p>You made it to the end!</p>
+        <img src="download.png" alt="Cute Dog">
+        <p>Thanks for exploring my page! 🐾</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 • Data Solutions That Make A Difference</p>
+    </footer>
+</body>
+</html>

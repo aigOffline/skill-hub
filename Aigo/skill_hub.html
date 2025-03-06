@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Skill Building Hub</title>
+    <style>
+        /* 🔹 Neumorphism Global Styles */
+        body {
+            background: #e0e5ec; /* Soft light background */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* Only modify the section boxes for glassmorphism */
+.section-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* Add a gradient background only inside the box */
+    background: linear-gradient(135deg, rgba(155, 77, 202, 0.15), rgba(155, 77, 202, 0.05));
+}
+
+/* Update the heading styling in the boxes */
+.section-box h2 {
+    color: #9b4dca; /* Keep your purple color theme */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Update the elements inside section boxes */
+.skill-list li, .step-item, .surprise-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Hover effects for list items */
+.skill-list li:hover, .step-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+        /* 🔹 Header */
+        header {
+            background: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7); /* Soft neumorphic shadow */
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #9b4dca; /* Purple color for header */
+            margin: 0;
+        }
+
+        /* 🔹 Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .tab-button {
+            background: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8); /* Soft neumorphic shadow */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            background: #f3e5f5; /* Light purple background on hover */
+            color: #9b4dca;
+        }
+
+        .tab-button.active {
+            background: #9b4dca;
+            color: white;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1); /* Inset shadow for pressed effect */
+        }
+
+        /* 🔹 Section Wrapper */
+        .section-wrapper {
+            width: 80%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* 🔹 Section Box (Neumorphic style) */
+        .section-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7); /* Neumorphic shadow */
+        }
+
+        .section-box h2 {
+            font-size: 1.8rem;
+            color: #9b4dca; /* Purple color for headings */
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-box h2::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 3px;
+            background: #9b4dca;
+            left: 35%;
+            bottom: -5px;
+            border-radius: 2px;
+        }
+
+        .section-box p {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* 🔹 Skill List */
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .skill-list li {
+            font-size: 1.1rem;
+            margin: 18px 0;
+            color: #333;
+            padding: 15px;
+            border-radius: 12px;
+            background: #f9f9f9;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.05), -3px -3px 6px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.08), -5px -5px 10px rgba(255, 255, 255, 0.9);
+            border-left: 3px solid #9b4dca; /* Purple accent on hover */
+        }
+
+        .skill-list li strong {
+            color: #9b4dca; /* Purple color for skill titles */
+            font-size: 1.15rem;
+        }
+
+        /* 🔹 Call-to-Action Button (Neumorphic style) */
+        .cta-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            background: #9b4dca;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-button:hover {
+            background: #7a2fa8;
+            transform: scale(1.05);
+            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.15), -7px -7px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* 🔹 Step Items */
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.05), -3px -3px 6px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .step-item:hover {
+            transform: translateY(-3px);
+            border-left: 3px solid #9b4dca;
+        }
+
+        .step-number {
+            background: #9b4dca;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* 🔹 Surprise Section */
+        .surprise-box {
+            background: #f3e5f5; /* Light purple background */
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            width: 100%;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .surprise-text {
+            font-size: 1.3rem;
+            color: #9b4dca;
+            font-weight: bold;
+        }
+
+        .surprise-animation {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* 🔹 Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #9b4dca;
+        }
+
+        /* 🔹 Running Line (from About page) */
+        .running-text-container {
+            width: 80%;
+            max-width: 1000px;
+            overflow: hidden;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .running-text {
+            font-size: 1.1rem;
+            color: #9b4dca;
+            margin: 0;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Header -->
+    <header>
+        <h1>Skill Building Hub</h1>
+    </header>
+
+    <!-- 🔹 Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-button" onclick="window.location.href='index.html'">About Me</button>
+        <button class="tab-button" onclick="window.location.href='projects.html'">Projects</button>
+        <button class="tab-button active" onclick="window.location.href='skill_hub.html'">Skill Hub</button>
+        <button class="tab-button" onclick="window.location.href='contact.html'">Contact</button>
+    </div>
+
+    <!-- 🔹 Running Text (matching About page) -->
+    <div class="running-text-container">
+        <p class="running-text">Turning complex data into actionable insights — Let's build something amazing together!</p>
+    </div>
+
+    <!-- 🔹 Skill Building Hub Sections -->
+    <div class="section-wrapper">
+
+        <div class="section-box">
+            <h2>🎯 What is the Skill Hub?</h2>
+            <p>Welcome to your go-to place for mastering data skills.</p>
+            <p>Think of data as a puzzle: messy, incomplete, and sometimes overwhelming. That's where I come in—to help you make sense of it.</p>
+        </div>
+
+        <div class="section-box">
+            <h2>📊 What Can I Help You With?</h2>
+            <ul class="skill-list">
+                <li> <strong>Finding & Understanding Data</strong> – Every great story starts with research. Using SQL, Python, and APIs, I track down, clean, and prepare datasets for deeper insights.</li>
+                <li> <strong>ETL & Data Transformation</strong> – Raw data is like an unedited manuscript. With Pandas, Power Query, dbt, and Azure Data Factory, I extract, transform, and load data into structured, usable formats.</li>
+                <li> <strong>Visualization & Insights</strong> – A good story needs compelling visuals. With Tableau, Power BI, and Matplotlib, I turn raw numbers into dashboards that make insights impossible to ignore.</li>
+                <li> <strong>Financial & Business Analytics</strong> – Every trend is a plot twist waiting to be uncovered. I use Excel, Python, and financial modeling to analyze data, build forecasts, and reveal hidden opportunities.</li>
+                <li> <strong>Data Ethics & Responsible AI</strong> – With great data comes great responsibility. I ensure ethical, fair, and compliant data use with governance frameworks, bias detection tools, and responsible AI principles.</li>
+                <li> <strong>Automation & Workflow Optimization</strong> – No one likes a slow-paced story. Using Python, Power Automate, and Airflow, I streamline workflows and eliminate repetitive tasks to keep things moving efficiently.</li>
+                <li> <strong>Low-Code Solutions & Business Apps</strong> – Sometimes, the best solutions don't need complex code. With PowerApps, I build custom applications that turn data into interactive, user-friendly tools.</li>
+            </ul>
+        </div>
+
+        <div class="section-box">
+            <h2>🛠 How Does It Work?</h2>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <p><strong>Submit a request</strong> — tell me what you need.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <p><strong>Work one-on-one</strong> to solve challenges.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <p><strong>Build real-world solutions</strong> together.</p>
+            </div>
+        </div>
+        
+        <div class="section-box">
+            <h2>💡 Ready to Get Started?</h2>
+            <p>Data is everywhere. Let's make sense of it—together.</p>
+            <a href="mailto:9634am@gmail.com?subject=Skill%20Hub%20Help%20Request&body=Hi%20there%2C%0A%0AI%20saw%20your%20Skill%20Building%20Hub%20and%20I'm%20interested%20in%20getting%20some%20help%20with%20a%20data%20project.%0A%0AHere%20are%20the%20details%3A%0A-%20Project%20Description%3A%0A-%20Key%20Objectives%3A%0A%0ALooking%20forward%20to%20hearing%20back%20from%20you!" class="cta-button">📩 Ask for Help</a>
+        </div>
+
+        <!-- 🔹 Surprise Section -->
+        <div class="section-box surprise-box">
+            <p class="surprise-text">Did you know? <span class="surprise-animation">✨</span></p>
+            <p>Data scientists spend up to 80% of their time just cleaning and preparing data. Let me handle that part so you can focus on what matters most!</p>
+        </div>
+
+    </div>
+
+    <!-- 🔹 Footer -->
+    <footer>
+        <p>&copy; 2025 • Data Solutions That Make A Difference</p>
+    </footer>
+
+</body>
+</html>

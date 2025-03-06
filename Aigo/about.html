@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Building Hub </title>
+    <style>
+        /* Copy of existing styles from previous page */
+        body {
+            background: #e0e5ec;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #9b4dca;
+            margin: 0;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .tab-button {
+            background: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            background: #f3e5f5;
+            color: #9b4dca;
+        }
+
+        .tab-button.active {
+            background: #9b4dca;
+            color: white;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section Wrapper */
+        .section-wrapper {
+            width: 80%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Section Box */
+        .section-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.15), rgba(155, 77, 202, 0.05));
+        }
+
+        .section-box h2 {
+            color: #9b4dca;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Styles */
+        .contact-form {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            margin-bottom: 20px;
+        }
+
+        .form-input label {
+            display: block;
+            margin-bottom: 10px;
+            color: #9b4dca;
+            font-weight: bold;
+        }
+
+        .form-input input, 
+        .form-input textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-input input:focus, 
+        .form-input textarea:focus {
+            border-color: #9b4dca;
+            box-shadow: 0 0 15px rgba(155, 77, 202, 0.3);
+        }
+
+        .submit-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            background: #9b4dca;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background: #7a2fa8;
+            transform: scale(1.05);
+            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.15), -7px -7px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Running Line */
+        .running-text-container {
+            width: 80%;
+            max-width: 1000px;
+            overflow: hidden;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .running-text {
+            font-size: 1.1rem;
+            color: #9b4dca;
+            margin: 0;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #9b4dca;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Skill Building Hub</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="window.location.href='index.html'">About Me</button>
+        <button class="tab-button" onclick="window.location.href='projects.html'">Projects</button>
+        <button class="tab-button" onclick="window.location.href='skill_hub.html'">Skill Hub</button>
+        <button class="tab-button" onclick="window.location.href='contact.html'">Contact</button>
+    </div>
+
+    <!-- Running Text -->
+    <div class="running-text-container">
+        <p class="running-text">Connect with me — Let's transform data into meaningful stories!</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section-wrapper">
+        <div class="section-box">
+            <h2>📞 Get In Touch</h2>
+            <p>Ready to turn data into insights? Let's connect!</p>
+
+            <form id="contactForm" class="contact-form" action="https://formspree.io/f/xnnjeebo" method="POST">
+                <div class="form-input">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="What should I call you?" required>
+                </div>
+
+                <div class="form-input">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Your email for connection" required>
+                </div>
+
+                <div class="form-input">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me about your data challenge or collaboration idea" required></textarea>
+                </div>
+
+                <input type="hidden" name="_to" value="9634am@gmail.com">
+                <button type="submit" class="submit-button">📨 Send Message</button>
+            </form>
+        </div>
+
+        <!-- Surprise Section -->
+        <div class="section-box surprise-box">
+            <p class="surprise-text">Did you know? <span class="surprise-animation">🎲</span></p>
+            <p>Sometimes the most unexpected conversations lead to the most brilliant data solutions! Every message is a potential breakthrough.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 • Data Solutions That Make A Difference</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                // Use Formspree for form submission
+                fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully! I'll get back to you soon.');
+                        this.reset();
+                    } else {
+                        alert('Oops! There was a problem sending your message. Please try again.');
+                    }
+                }).catch(error => {
+                    alert('Oops! There was a problem sending your message. Please try again.');
+                });
+            } else {
+                alert('Please fill out all fields before sending.');
+            }
+        });
+    </script>
+</body>
+</html>

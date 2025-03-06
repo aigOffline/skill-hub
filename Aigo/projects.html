@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Building Hub - Projects</title>
+    <style>
+        body {
+            background: #e0e5ec;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.1), -8px -8px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #9b4dca;
+            margin: 0;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .tab-button {
+            background: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            background: #f3e5f5;
+            color: #9b4dca;
+        }
+
+        .tab-button.active {
+            background: #9b4dca;
+            color: white;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section Wrapper and Box */
+        .section-wrapper {
+            width: 80%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .section-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: linear-gradient(135deg, rgba(155, 77, 202, 0.15), rgba(155, 77, 202, 0.05));
+            transition: transform 0.3s ease;
+        }
+
+        .section-box:hover {
+            transform: scale(1.02);
+        }
+
+        .section-box h2 {
+            color: #9b4dca;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .section-box p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #9b4dca;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .project-link:hover {
+            background: #7a2fa8;
+            transform: scale(1.05);
+            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.15), -7px -7px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Running Line */
+        .running-text-container {
+            width: 80%;
+            max-width: 1000px;
+            overflow: hidden;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.7);
+        }
+
+        .running-text {
+            font-size: 1.1rem;
+            color: #9b4dca;
+            margin: 0;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #9b4dca;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Skill Building Hub</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-button" onclick="window.location.href='index.html'">About Me</button>
+        <button class="tab-button active" onclick="window.location.href='projects.html'">Projects</button>
+        <button class="tab-button" onclick="window.location.href='skill_hub.html'">Skill Hub</button>
+        <button class="tab-button" onclick="window.location.href='contact.html'">Contact</button>
+    </div>
+
+    <!-- Running Text -->
+    <div class="running-text-container">
+        <p class="running-text">Transforming data into powerful insights through innovative projects!</p>
+    </div>
+
+    <!-- Projects Section Wrapper -->
+    <div class="section-wrapper">
+        <div class="section-box">
+            <h2>🌦️ Weather Dashboard Sample</h2>
+            <p>Using OpenWeather API, we extract real-time weather data and consolidate it with other sources.</p>
+            <p>By leveraging <strong>Python, Pandas, Plotly, and Tableau</strong>, we create stunning dashboards and predictive models!</p>
+            <a href="https://github.com/yourusername/weather-dashboard" target="_blank" class="project-link">Let’s Build It Together!</a>
+        </div>
+
+        <div class="section-box">
+            <h2>🚔 Predicting NYC Crime Rate</h2>
+            <p>We use <strong>MySQL, Tableau, Apache Spark, PySpark</strong> to forecast crime patterns with data clustering and ML.</p>
+            <a href="https://github.com/aigOffline/NYC-Crime" target="_blank" class="project-link">Let’s Build It Together!</a>
+        </div>
+
+        <div class="section-box">
+            <h2>📊 Predictive Financial Models</h2>
+            <p>Ever wondered how AI predicts stock trends? We apply <strong>Machine Learning and Financial Forecasting</strong> with Python!</p>
+            <p>Using <strong>scikit-learn, NumPy, Pandas, and Matplotlib</strong>, we analyze financial trends and risk factors.</p>
+            <a href="https://github.com/yourusername/financial-models" target="_blank" class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="section-box">
+            <h2>🤖 AI-Powered Business Analytics</h2>
+            <p>From customer segmentation to demand forecasting, AI is revolutionizing business analytics.</p>
+            <p>We use <strong>Python, Tableau, Power BI, and SQL</strong> to build interactive business intelligence tools.</p>
+            <a href="https://github.com/yourusername/business-analytics" target="_blank" class="project-link">View on GitHub</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 • Data Solutions That Make A Difference</p>
+    </footer>
+</body>
+</html>
