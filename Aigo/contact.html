@@ -239,6 +239,30 @@
             font-size: 1rem;
             color: #9b4dca;
         }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(92, 184, 92, 0.2);
+            color: #5cb85c;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #5cb85c;
+            font-weight: bold;
+        }
+
+        /* Error Message */
+        .error-message {
+            display: none;
+            background: rgba(217, 83, 79, 0.2);
+            color: #d9534f;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #d9534f;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -249,10 +273,10 @@
 
     <!-- Navigation Tabs -->
     <div class="tabs">
-        <button class="tab-button" onclick="window.location.href='index.html'">About Me</button>
-        <button class="tab-button" onclick="window.location.href='projects.html'">Projects</button>
-        <button class="tab-button" onclick="window.location.href='skill_hub.html'">Skill Hub</button>
-        <button class="tab-button active" onclick="window.location.href='contact.html'">Contact</button>
+        <a href="index.html"><button class="tab-button">About Me</button></a>
+        <a href="projects.html"><button class="tab-button">Projects</button></a>
+        <a href="skill_hub.html"><button class="tab-button">Skill Hub</button></a>
+        <a href="contact.html"><button class="tab-button active">Contact</button></a>
     </div>
 
     <!-- Running Text -->
@@ -266,7 +290,7 @@
             <h2>📞 Get In Touch</h2>
             <p>Ready to turn data into insights? Let's connect!</p>
 
-            <form id="contactForm" class="contact-form" action="https://formspree.io/f/your_formspree_endpoint" method="POST">
+            <form id="contactForm" class="contact-form" action="https://formspree.io/f/xnnjeebo" method="POST">
                 <div class="form-input">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" placeholder="What should I call you?" required>
@@ -283,6 +307,14 @@
                 </div>
 
                 <button type="submit" class="submit-button">📨 Send Message</button>
+                
+                <div id="successMessage" class="success-message">
+                    Message sent successfully! I'll get back to you soon.
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    Oops! There was a problem sending your message. Please try again.
+                </div>
             </form>
         </div>
 
@@ -290,9 +322,9 @@
         <div class="section-box surprise">
             <h2>🎉 Surprise!</h2>
             <p>You made it to the contact page!</p>
-            <img src="cat1.jpg" alt="Cute Graphic">
+            <img src="images/cat1.jpg" alt="Cute Graphic">
             <p>Thanks for exploring my page! 🐾</p>
-            <button>Learn More</button>
+            <a href="skill_hub.html"><button>Learn More</button></a>
         </div>
     </div>
 
@@ -305,32 +337,75 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
+            // Hide any previous messages
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none';
+            
             // Basic form validation
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
+            
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (name && email && message) {
-                // Use Formspree for form submission
-                fetch(this.action, {
-                    method: 'POST',
-                    body: new FormData(this),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        alert('Message sent successfully! I'll get back to you soon.');
-                        this.reset();
-                    } else {
-                        alert('Oops! There was a problem sending your message. Please try again.');
-                    }
-                }).catch(error => {
-                    alert('Oops! There was a problem sending your message. Please try again.');
-                });
-            } else {
-                alert('Please fill out all fields before sending.');
+            if (!name) {
+                alert('Please enter your name');
+                document.getElementById('name').focus();
+                return false;
             }
+            
+            if (!email || !emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                document.getElementById('email').focus();
+                return false;
+            }
+            
+            if (!message) {
+                alert('Please enter your message');
+                document.getElementById('message').focus();
+                return false;
+            }
+
+            // Use Formspree for form submission
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show success message and reset form
+                    document.getElementById('successMessage').style.display = 'block';
+                    this.reset();
+                    
+                    // Auto-hide the success message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    
+                    // Auto-hide the error message after 5 seconds
+                    setTimeout(function() {
+                        document.getElementById('errorMessage').style.display = 'none';
+                    }, 5000);
+                }
+            }).catch(error => {
+                document.getElementById('errorMessage').style.display = 'block';
+                console.error('Error:', error);
+                
+                // Auto-hide the error message after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 5000);
+            });
+        });
+        
+        // Add click event for the Surprise section button
+        document.querySelector('.surprise button').addEventListener('click', function() {
+            window.location.href = 'skill_hub.html';
         });
     </script>
 </body>
